@@ -1,6 +1,4 @@
 script: for hook in hooks/*; do bash -n "${hook}"; done
-before_script:
-  - 'bundle install'
 language: ruby
 rvm:
   - 1.9.3
@@ -8,4 +6,4 @@ rvm:
   - 2.2.2
   - head
 env:
-  - CHEF_VERSION=10.12.0
+  - CHEF_VERSION>=10.12.0
