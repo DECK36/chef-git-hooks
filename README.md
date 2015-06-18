@@ -21,7 +21,7 @@ Hooks
 Continuous Integration
 ----------------------
 
-[![Build Status](https://secure.travis-ci.org/gregf/chef-git-hooks.png)](http://travis-ci.org/gregf/chef-git-hooks)
+[![Build Status](https://secure.travis-ci.org/DECK36/chef-git-hooks.png)](http://travis-ci.org/DECK36/chef-git-hooks)
 
 
 License
@@ -31,3 +31,13 @@ Copyright (c) 2012 Greg Fitzgerald
 This script is licensed under the Apache License, Version 2.0.
 
 See http://www.apache.org/licenses/LICENSE-2.0.html for the full license text.
+
+
+Changes
+-------
+
+This is a fork from https://github.com/gregf/chef-git-hooks -- changes are:
+
+* fix OSX compatibility and
+* run foodcritic on single files.
+
