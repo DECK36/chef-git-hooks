@@ -75,16 +75,19 @@ do
     fi
 done
 
-# foodcritic check
-if [[ -n $CHEF_VERSION ]]; then
-  foodcritic "${FOODCRITIC_FLAGS}" -c $CHEF_VERSION $PWD > /dev/null 2>&1
-else
-  foodcritic "${FOODCRITIC_FLAGS}" $PWD > /dev/null 2>&1
-fi
+for file in ${FILES[@]}
+do
+    # foodcritic check
+    if [[ -n $CHEF_VERSION ]]; then
+      foodcritic ${FOODCRITIC_FLAGS} -c $CHEF_VERSION ${file} > /dev/null 2>&1
+    else
+      foodcritic ${FOODCRITIC_FLAGS} ${file} > /dev/null 2>&1
+    fi
 
-if [[ $? -ne 0 ]] ; then
-    echo "Foodcritic lint tests failed. Run 'foodcritic --epic-fail any .'" >&2
-    STATUS=2
-fi
+    if [[ $? -ne 0 ]] ; then
+        echo "Foodcritic lint tests failed. Run 'foodcritic --epic-fail any ${file}'" >&2
+        STATUS=2
+    fi
+done
 
 exit $STATUS
